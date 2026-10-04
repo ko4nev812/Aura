@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aura"
+version = "0.1.0"
+description = "Aura - ambient player that picks music from your activity (Phase 1 skeleton)"
+requires-python = ">=3.11"
+dependencies = [
+    "PyQt6>=6.6",
+    "SQLAlchemy>=2.0",
+    "pydantic-settings>=2.2",
+    "PyYAML>=6",
+    "psutil>=5.9",
+    "pywin32>=306; sys_platform == 'win32'",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.gui-scripts]
+aura = "aura.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["aura*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
